@@ -1,0 +1,20 @@
+.homeS{
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    width:max-content;
+    margin-top:250px;
+    border: 3px solid #eacf93dc;
+    padding: 10px;
+    background-color: bisque;
+    margin-left: 600px;
+}
+
+.all{
+    background-color:#161616;
+    background-repeat:no-repeat ;
+    background-size: cover;
+    height: 653px;
+width:auto
+}
+

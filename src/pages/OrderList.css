@@ -1,0 +1,119 @@
+
+#cart{
+    text-align: center;
+    font-size: xx-large;
+    /* color: #fd4d6b; */
+    color: #a71f35;
+    font-family: "Monospace", Lucida- Console  ;
+
+}
+
+#cartIcon{
+    height: auto;
+    width: 70px;
+}
+
+/* #box{
+    color: red;
+    border: 5px solid #E0C7AC;
+} */
+
+#payment{
+  display: inline; 
+}
+
+#close{
+    margin-top: 170px;
+    margin-left: 15px;
+    color: #a71f35;
+}
+
+/* .tempOrders{
+    border:4px solid #e1b96ab6 ;
+
+} */
+
+
+.image{
+    width:250px;height:auto;
+    float: left;
+      width: 33.33%;
+      padding: 5px;
+  
+  }
+
+  .row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+  }
+
+  /* #E0C7AC */
+  .orderDiv{
+    border:3px solid #a71f35; 
+     margin:5px;
+  }
+
+  .orderDetails{
+    margin-left: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, serif;
+  }
+
+  /* .imgdiv{
+    border:3px solid #a71f35 ;
+  } */
+
+  .trash{
+    font-size: xx-large;
+    margin-top: 22px;
+    margin-left: 10px;
+  }
+
+  .input{
+    width:40px;
+    border:2px solid #a71f35 ;
+
+  }
+ 
+  
+
+  .labelQ{
+    margin-right: 10px;
+    color:black
+  }
+
+  #payment{
+    border:3px solid #a71f35; 
+   border-radius:4px;
+    margin-left: 15px;
+    padding: 10px;
+    font-size: medium;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #a71f35;
+    color: rgb(248, 248, 248)  ;
+    margin-bottom: 10px;
+  }
+
+  #temp{
+    margin-left: 15px;
+    color:#a71f35;
+  }
+
+  #shAddress{
+    border:3px solid #a71f35; 
+    border-radius: 3px;
+    width:200px;
+    
+  }
+
+  #p{
+    margin-left: 15px;
+    font-size: xx-large;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+
+.orderLabel{
+  color: black;
+}

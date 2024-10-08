@@ -1,0 +1,111 @@
+
+ .searchbar{
+    width: 500px;
+    height: 25px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 4px solid #e1b96ab6; 
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+    font-size: small;
+}  
+
+
+
+
+ .btn{
+ background-color: #eacf93dc;
+ border-color: #eacf93dc; 
+ border-radius: 2px;
+ border-width: 30px;
+ width: 30px;
+color: #ddd; 
+height: 25px;
+ margin-top: 10px; 
+overflow: hidden; 
+/* margin-right: 180px; */
+margin-bottom:20px ;
+}
+
+#searchItems{
+    display: none; 
+    margin-top: 70px;
+    width: 360px;
+}
+
+
+  .titleSearch{
+    /* display: inline;  */
+     /* margin-top: 70px;    */
+     color: rgb(0, 0, 0);
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+.titleSearch:hover{
+    background-color: rgb(201, 199, 199);
+    
+}
+
+
+/* #searchItems:hover{
+    display: none; 
+    margin-top: 70px;
+    background-color: rgb(0, 122, 0);
+
+} */
+
+.icon{
+font-size: small;
+margin-right: 50px;
+background-color: #eacf93dc;
+border-color: rgb(152, 175, 251);
+border-radius: 2px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 10px;
+} 
+
+.heartIcon{
+    margin-left: 400px;
+    size: 100px;
+    font-size: x-large;
+  
+  }
+  
+  .cartIcon{
+    margin-left: 40px;
+    margin-bottom: 10px;
+    font-size: x-large;
+  
+  }
+
+  .imgdiv{
+    border:5px solid #E0C7AC;
+    width:480px; 
+    padding:auto;
+     margin:5px;
+  }
+  
+
+  .image{
+    /* width:250px;height:auto; */
+    /* width: 100px; */
+    float: left;
+      width: 33.33%;
+      padding: 5px;  
+  }
+  
+  .labelQS{
+    color: black;
+  }
+
+  .inputS{
+    border:2px solid #a71f35 ;
+    width: 40px;
+  }
+
+  
