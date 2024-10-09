@@ -1,8 +1,6 @@
 import React from "react";
 import './App.css';
 import Navbar from './components/Navbar'
-import SecondNavbar from './components/SecondNavbar'
-
 
 import './App.css'
 import Home from "./pages/Home";
@@ -21,7 +19,6 @@ import { AuthProvider } from "./components/context/AuthProvider";
 
 
 import FavoritePage from "./pages/FavoritePage";
-import HomeNew from "./pages/HomeNew";
 import OrderPage from "./pages/OrderPage";
 import TempOrders from "./pages/TempOrders";
 import CloseOrders from "./pages/CloseOrders";
@@ -34,9 +31,8 @@ function App() {
       return (
             <>
                   <AuthProvider>
-{(JSON.parse(sessionStorage.getItem("username"))==null)||(JSON.parse(sessionStorage.getItem("isActive"))==false)? <Navbar />:<SecondNavbar/>
-}
-                       
+
+<Navbar />
                         <div className="container">
                               <Routes>
                                     <Route path="/" element={<MainPage />} />
@@ -55,7 +51,6 @@ function App() {
 
 
                                     <Route path="/favoritePage" element={<FavoritePage />} />
-                                    <Route path="/homeNew" element={<HomeNew />} />
                                     <Route path="/orderPage" element={<OrderPage />} />
 
 

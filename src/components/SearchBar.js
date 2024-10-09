@@ -35,14 +35,6 @@ const hide = () => {
     }
 }
 
-// const moveToSearch = () => {
-//     var y = document.getElementsByClassName('titleSearch');
-//     if (y.style.display === "inlline" ) {
-//         y.style.display = "none";
-//       } else {
-//         y.style.display = "none";
-// }
-// }
 
 
 function SearchBar() {
@@ -56,33 +48,27 @@ function SearchBar() {
     const [enteredShippingAddress, setEnteredShippingAddress] = useState('');
     const [currentId, setCurrentId] = useState();
 
-    //  var [enteredTotalPrice , setEnteredTotalPrice]=useState([]);
     const [itemQuantity, setItemQuantity] = useState([]);
     const [searchItemsL, setSearchItemsL] = useState([]);
     const [registeredUser, setRegisteredUser] = useState([]);
     const [noww, setNoww] = useState([]);
 
-    // const [filteredData, setFilteredData] = useState([]);
 
     let bUserName = sessionStorage.getItem("username")
     let nUserName;
     if(sessionStorage.getItem("username")){
         nUserName = bUserName.replace(/"/g, "'");
     }
-   //  console.log(nUserName)
    
     const userItemsBody ={
        userName: nUserName
     }
 
 
-//  var  filteredData;
 
     var enteredTotalPrice = 0;
-    //    var enteredTotalPrice ;
     var enteredOrderDate;
 
-    // const [searchInput, setSearchInput] = useState([]);
 
     const quantityChangeHandler = (event) => {
         setEnteredQuantity(event.target.value.split(',').reduce((a, c) => a + (isNaN(+c) ? 0 : +c), 0))
@@ -165,7 +151,6 @@ function SearchBar() {
             liked: !item.liked,
             cart: item.cart
         };
-        // let arrOfItems=[itemToUpdate]
         updateItem(itemToUpdate);
     };
 
@@ -183,14 +168,11 @@ function SearchBar() {
             liked: item.liked,
             cart: !item.cart
         };
-        // let arrOfItems=[itemToUpdate]
         updateItem(itemToUpdate);
         if (currentId == null && item.cart == 0) {
-            // getTotalPrice(itemPrices,itemQuantity);
             orderCreate();
         }
         else if (currentId != null && item.cart == 0) {
-            // getTotalPrice(itemPrices,itemQuantity);
             orderUpdate();
         }
     };
@@ -204,46 +186,7 @@ function SearchBar() {
         }
        }
     }
- 
 
-    //     useEffect(() => {
-
-    //         getAllItems().then(
-
-    //             res => {
-    //                 const itemOptions = res.data.map(item => {
-    //                     if(searchInput == item.title){
-    //                     return ({ ...item }, <div key={item.id} class="imgdiv" ><img class="image" src={item.pictureUrl}></img> <div> {item.title} </div> <br></br><div> {item.price} USD </div>
-    //                         <br></br><div> {item.quantity} In Stock </div>
-    //                         <span class="heartIcon" onClick={() => changeIcon(item)} >{item.liked ? <FaHeart /> : <FaRegHeart />}</span>
-    //                         <span class="cartIcon"onClick={() => secondChangeIcon(item)} >{item.cart ? <BsCartDash /> : <BsCartPlus />}</span> </div>)
-    //              }});
-    //              setMatchingItem(itemOptions);
-
-    //          }
-
-    //      );
-
-    //  }, [matchingItem]);
-
-
-
-
-    // const searchItems = (searchValue) => {
-    //     setSearchInput(searchValue)
-    //     if (searchInput !== '') {
-    //         const filteredData = existingItems.filter((item) => {
-    //             return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
-    //         })
-    //         // console.log("filterd")
-    //         // console.log(filteredData)
-    //         setFilteredResults(filteredData)
-    //     }
-    //     else {
-    //         setFilteredResults(existingItems)
-    //     }
-
-    // }
 
     const searchItems = (searchValue) => {
         setSearchInput(searchValue)
@@ -251,9 +194,6 @@ function SearchBar() {
             const filteredData = existingItems.filter((item) => {
                 return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
             })
-            // console.log("filterd")
-            // console.log(filteredData)
-            // console.log(filteredData.length==0)
             setFilteredResults(filteredData)
         }
         else {
@@ -263,23 +203,12 @@ function SearchBar() {
     }
 
 
-    //   const inputItems = (text) => {
-    //     // setSearchInput({searchInput: {text}})
-
-    //     setSearchInput(`${text}`)
-    //     alert("aaaaaaaaa");
-
-    // };
-
     const loginAlert = () => {
         alert("Please Login To Continue")
     }
 
 
     const inputItems = (item) => {
-        // setSearchInput({searchInput: {text}})
-
-        // setSearchInput(`${item.title}`)
         setSearchInput((item.title))
     };
 
@@ -289,7 +218,6 @@ function SearchBar() {
                 
                 const favorites = res.data.map(userItems => {
                 
-                    // return ({ ...userItems })
                     return (
                         userItems.id
                     )
@@ -304,22 +232,8 @@ function SearchBar() {
                 const itemOptions = res.data.map(item => {
 
                     if (searchInput == item.title) {
-                        // if (Object.values(item.title).join('').toLowerCase().includes(searchInput.toLowerCase())) {
 
                         return ({ ...item }, 
-                            
-                        // <div key={item.id} class="imgdiv" style={{ marginTop: 150 }} ><img style={{ width: 250, height: "auto" }} class="image" src={item.pictureUrl}></img> <div> {item.title} </div> <br></br><div> {item.price} USD </div>
-                        //     {/* <br></br><div> {item.quantity} In Stock </div> */}<br></br>
-                        //     <div>Quantity: {item.quantity - item.inStock}</div><br></br>
-                        //     <span> <label class="labelQS"> Change Quantity : </label>
-                        //         <input required key={item.id} class="inputS" type="number"
-                        //             value={enteredQuantity}
-                        //             onChange={quantityChangeHandler}
-                        //         >
-                        //         </input>
-                        //     </span>
-                        //     <span class="heartIcon" onClick={() => changeIcon(item)} >{item.liked ? <FaHeart /> : <FaRegHeart />}</span>
-                        //     <span class="cartIcon" onClick={() => secondChangeIcon(item)} >{item.cart ? <BsCartDash /> : <BsCartPlus />}</span> </div>
                        <Item item={item} favorites={favorites} />
                             )
                     }
@@ -358,22 +272,9 @@ function SearchBar() {
 
                     res => {
                         const users = res.data.map(user => {
-                            // if (user.active == 0) {
                                 if(user.username==JSON.parse(sessionStorage.getItem("username"))){
                                 return ({ ...user }, <div class="row" style={{marginLeft: "0px"}} >{matchingItem}</div>)
                             } 
-                            // else  if(JSON.parse(sessionStorage.getItem("isActive"))==false){
-                            //     return <div class="row">{searchItemsL} {sessionStorage.getItem("isActive")} </div>;
-                            // } 
-
-                            // else {
-                                // return <div class="row"> {searchItemsL}</div>;
-                            // }
-
-                            // else{
-                            //     ifFunc();
-                            // }
-
                         });
                         setRegisteredUser(users);
                     }
@@ -392,18 +293,13 @@ function SearchBar() {
     return (
         <>
 
-            {/* <Link to="/SecondSearchBar" >  <input  className="searchbar"  type="text"   id="myInput"  placeholder="Search" name="search"  value={searchInput}  onChange={(e) =>{searchItems(e.target.value) ; inputItems(e.target.value)}} onClick={moveToSearch} ></input> <div type="submit" className="btn" > <FontAwesomeIcon className="icon" icon={faMagnifyingGlass} /> </div> </Link>  */}
 
 
-
-            {/* <Link to="/SecondSearchBar" >  <input  className="searchbar"  type="text"   id="myInput"  placeholder="Search" name="search"   onChange={(e) => searchItems(e.target.value)} onClick={moveToSearch} ></input> <button type="submit" className="btn" style={{marginBottom:30,borderWidth:30 , background:"red" , backgroundSize:20}}> <FontAwesomeIcon  icon={faMagnifyingGlass} /> </button> </Link>  */}
             <Link to="/SecondSearchBar" >  <input className="searchbar" type="text" id="myInput" placeholder="Search" name="search" value={searchInput} onChange={(e) => searchItems(e.target.value)} onClick={moveToSearch} ></input> <div type="submit" className="btn" > <FontAwesomeIcon className="icon" icon={faMagnifyingGlass} /> </div> </Link>
 
-            {/* <button type="submit" className="btn" > <FontAwesomeIcon icon={faMagnifyingGlass} /> </button>   */}
 
             <div id="searchItems" >
-                {/* {filteredData} */}
-                {/* {filteredData.length==0?<div>Emptyyyyyyyyyyyyy</div>:} */}
+
                 {(searchInput.length > 0)&&(filteredResults.length!=0) ? (
 
                     filteredResults.map((item) => {
@@ -422,20 +318,9 @@ function SearchBar() {
                     )
 
                  :
-                //  (
-                //     existingItems.map((item) => {
-                //         return (
-                //             <>
-                //                 <br></br>
-                //                 {/* <div className="titleSearch" onClick={() => inputItems(item)} key={item.id}>{item.title}</div> */}
 
-                //             </>
-                //         )
-                //     })
-                // )
                 <div> not found!</div>
                 }
-                {/* {matchingItem} */}
                 {registeredUser}
 
 
@@ -443,7 +328,6 @@ function SearchBar() {
             </div>
 
 
-            {/* {matchingItem} */}
 
         </>
     )

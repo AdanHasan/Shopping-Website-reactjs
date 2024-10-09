@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="../images/finallogo.jpg" alt="Logo" width="140" height="80">
+    <img src="./src/images/finallogo.jpg" alt="Logo" width="140" height="80">
 
 
 <h3 align="center">Sunglasses Online Website</h3>
@@ -41,9 +41,9 @@
 ## About The Project
 
 <div>
-    <img src="../images/firstHomePage.jpg" alt="firstScreenshot" width="480" height="280"><br>
-    <img src="../images/secondHomePage.jpg" alt="secondScreenshot" width="480" height="280"><br>
-    <img src="../images/thirdHomePage.jpg" alt="thirdScreenshot" width="480" height="50"><br>
+    <img src="./src/images/firstHomePage.jpg" alt="firstScreenshot" width="480" height="280"><br>
+    <img src="./src/images/secondHomePage.jpg" alt="secondScreenshot" width="480" height="280"><br>
+    <img src="./src/images/thirdHomePage.jpg" alt="thirdScreenshot" width="480" height="50"><br>
 
 </div>
 
@@ -90,7 +90,7 @@ _Below is an example of how you can installing the project._
    ```
    <br>
 4. Open the visual studio code , click on terminal <br><br>
-<img src="../images/terminal.png" alt="terminal" width="380" height="90"></img>
+<img src="./src/images/terminal.png" alt="terminal" width="380" height="90"></img>
    and type npm start
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

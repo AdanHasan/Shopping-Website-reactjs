@@ -12,16 +12,13 @@
     font-size: small;
 }  
 
-
-
-
  .btn{
  background-color: #eacf93dc;
  border-color: #eacf93dc; 
  border-radius: 2px;
  border-width: 30px;
  width: 30px;
-color: #ddd; 
+color: #000000; 
 height: 25px;
  margin-top: 10px; 
 overflow: hidden; 
@@ -37,8 +34,6 @@ margin-bottom:20px ;
 
 
   .titleSearch{
-    /* display: inline;  */
-     /* margin-top: 70px;    */
      color: rgb(0, 0, 0);
      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -50,12 +45,6 @@ margin-bottom:20px ;
 }
 
 
-/* #searchItems:hover{
-    display: none; 
-    margin-top: 70px;
-    background-color: rgb(0, 122, 0);
-
-} */
 
 .icon{
 font-size: small;
@@ -92,8 +81,6 @@ padding-top: 10px;
   
 
   .image{
-    /* width:250px;height:auto; */
-    /* width: 100px; */
     float: left;
       width: 33.33%;
       padding: 5px;  
@@ -108,4 +95,3 @@ padding-top: 10px;
     width: 40px;
   }
 
-  

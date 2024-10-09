@@ -15,7 +15,6 @@ section {
     justify-content: flex-start;
     padding: 1rem;
     background-color: #161616;
-    /* rgba(0,0,0,0.4) */
 }
 
 form {
@@ -30,7 +29,6 @@ a, a:visited {
     color: #fff;
 }
 
-/* input[type="text"], */
 .inputs,
 input[type="password"],
 button,
