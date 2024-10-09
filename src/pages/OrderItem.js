@@ -2,8 +2,8 @@ import React from "react";
 import { FaHeart, FaRegHeart} from "react-icons/fa"
 import classes from "./Home.css";
 import { useState, useEffect } from "react";
-import { BsCartPlus , BsCartDash , BsCart} from "react-icons/bs"
-import { getAllItems, updateItem , createOrder, getAllOrders ,updateOrderItemQuantity, updateOrder , getAllUsers,decOrderItemQuantity, getAllUserItems, deleteUserItem ,getQantity, createUserItems,createOrderItems,createOrderItem,updateItemQuantity} from "../services/api";
+import { BsCartPlus , BsCartDash } from "react-icons/bs"
+import {  createOrder, updateOrder ,decOrderItemQuantity, deleteUserItem , createUserItems,createOrderItems,createOrderItem,updateItemQuantity} from "../services/api";
 
 
 function OrderItem(props) {
@@ -13,8 +13,6 @@ function OrderItem(props) {
     var enteredOrderDate;
     var x=0;
     useEffect(() => {
-// console.log(props.arrOfTemps.length)
-// console.log(props.arrOfOrderItems[props.item.id]);
   if(props.favorites.includes(props.item.id))
     {
         setIsHeart(true)
@@ -51,16 +49,7 @@ function OrderItem(props) {
     const changeCart = () =>{
         setInCart(!inCart);
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // const quantityChangeHandler = () => {
-    // const body ={
-    //     userName:JSON.parse(sessionStorage.getItem("username")),
-    //     itemId: props.item.id
-    // }
-    // const y=getQantity(body);
-    // console.log(y)
-    // return y;
-    // }
+
 
 
     const getDate=()=>{
@@ -71,7 +60,6 @@ function OrderItem(props) {
        var current_date = year + "-" + month + "-" + day;
 
         enteredOrderDate = current_date;
-        // console.log(enteredOrderDate)
 
        }
 
@@ -80,7 +68,6 @@ function OrderItem(props) {
             userName:JSON.parse(sessionStorage.getItem("username")),
             orderItemId:props.item.id
         }
-        // if (JSON.parse(sessionStorage.getItem("isActive"))==true){
         createOrderItem(orderItemToCreate);
         
        }
@@ -90,13 +77,10 @@ function OrderItem(props) {
             orderId:props.tempOrder.id,
             itemId:props.item.id
         }
-        // if (JSON.parse(sessionStorage.getItem("isActive"))==true){
             decOrderItemQuantity(orderItemTodec);
         
        }
-    //    deleteOrderItemsById
-    // decOrderItemQuantity
-/////////////////////////////////////////////////////////////////////
+
     const addOrder=()=>{
         getDate();
         const orderToCreate = {
@@ -115,7 +99,6 @@ function OrderItem(props) {
     }
     const addItemToCart=()=>{
         const orderItemToCreate = {
-            // orderId:props.lastId,
             orderId:1,
             quantity:1,
              items:[props.item.id]
@@ -166,16 +149,8 @@ else{
        
 if(props.item.inStock>0)  {   
     updateOrder(orderToUpdate);
-    // createOrderItems(orderItemToCreate);
     updateItemQuantity(quantityUpdate);  
-//////////////بدي انو لما اكبس وتقل الكونتي لازم تزيد بصفحة المشتريات
-    // if(props.arrOfOrderItems[props.lastId].quantity>=1) {
-    //     updateOrderItemQuantity(orderItemToUpdate);
 
-    // }
-    // else{
-    //     createOrderItems(orderItemToCreate);
-    // }
     }
     else{
      alert("This item is out of stock!")
@@ -192,26 +167,15 @@ if(props.item.inStock>0)  {
      <br></br><div className="tPrice"> {props.item.price} USD </div>
                         <br></br><div> {props.item.inStock} In Stock </div>
                          <br></br><br></br><br></br>
-                      {/* <span> <label class="labelQuantity">Quantity :</label>  */}
-                      {/* <input  required key={props.item.id} class="inputQuantity" type="number"
-                      value={enteredQuantity}
-                      onChange={quantityChangeHandler}
-                     >
-               </input> */}
-                      {/* </span> */}       
+        
                       <span class="quantityNum">  {props.item.quantity} Quantiny </span> 
                       <br></br>
-                        {/* <div class="quantityNum" onChange={quantity(props.item.id,JSON.parse(sessionStorage.getItem("username")))}> Quantiny </div>  */}
                         <span class="heartIcon" style={{marginLeft: "360px"}} onClick={changeHeart}> {isHeart ? <FaHeart /> : <FaRegHeart />} </span>
 
-                        {/* <span class="cartIcon"onClick={changeCart} >{inCart ? <BsCartDash /> : <BsCartPlus />}</span>   */}
                         <span class="cartIcon"  > 
                         <BsCartPlus  onClick={addNew}   /> 
                         <BsCartDash onClick={removeNew} style={{marginLeft: "40px"}}/>   
-                         </span>  
-
-                        {/* <span class="cartIcon"onClick={addNew} > <BsCartPlus /></span>   */}
-                        
+                         </span>                          
                         </div>
     </>)
 }

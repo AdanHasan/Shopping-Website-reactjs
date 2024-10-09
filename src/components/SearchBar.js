@@ -2,16 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import { getAllItems, updateItem, createOrder, updateOrder, getAllUsers,getAllUserItems } from "../services/api";
-// import { Card, Input } from 'react-card-component'
 import { useState, useEffect } from "react";
-import { classes as a } from "../components/SearchBar.css";
-import { classes as b } from "../components/Navbar";
-
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import SecondSearchBar from "./SecondSearchBar";
-import { text } from "@fortawesome/fontawesome-svg-core";
-import { BsCartPlus, BsCartDash } from "react-icons/bs"
-import { FaHeart, FaRegHeart, FaCartPlus } from "react-icons/fa";
+import { BsCartPlus } from "react-icons/bs"
+import {  FaRegHeart } from "react-icons/fa";
 import Item from "../pages/Item";
 
 

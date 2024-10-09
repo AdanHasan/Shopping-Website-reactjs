@@ -24,7 +24,6 @@ function Clos() {
       useEffect(() => {
         getAllOrders()
           .then((res) => {
-            // const resTempOrders = res.data.filter((order) => order.status === "CLOSE"&& order.userName==JSON.parse(sessionStorage.getItem("username")));
             const resTempOrders = res.data.filter((order) => order.status === "CLOSE"&& order.userName==JSON.parse(sessionStorage.getItem("username")));
 
             return { 

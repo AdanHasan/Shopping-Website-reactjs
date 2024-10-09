@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect, Fragment, useContext } from "react";
-import { authenticate, updateUser, deleteUser} from "../services/api";
+import React from "react";
+import { deleteUser} from "../services/api";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 function DeleteAccount() {

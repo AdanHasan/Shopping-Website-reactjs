@@ -156,18 +156,7 @@ useEffect(() => {
 
     return(
 
-      // <>
-      // {createdCloseOrder.map(cO =>
-      // <>
-      //    <CloseOrder key={cO} closeOrder={cO}  /> 
-
-
-         
-
-      //    </>
-      //   )}
-  
-      // </>
+    
 
          <>
          {closeOrders.length==0?null:        <h1 id="close"> CLOSE ORDERS</h1>
@@ -178,7 +167,6 @@ useEffect(() => {
       <>
          <CloseOrder key={cO} 
          closeOrder={cO}
-// arrOfItems={currentItems[index]===undefined ? null : currentItems[index]}
 arrOfItems={currentItems[closeOrders[index].id-1]===undefined ? null : currentItems[closeOrders[index].id-1]}
 
            /> 
@@ -191,20 +179,6 @@ arrOfItems={currentItems[closeOrders[index].id-1]===undefined ? null : currentIt
   
       </>
 
-        
-
-        
-  
-// <>
-//{tempOrders.map((tO,index) =>
-//<>
- //  <TempOrder key={tO} tempOrder={tO} arrOfItems={currentItems[index]===undefined ? null : currentItems[index]}
- //   favorites={existingItems}
- //   /> 
-//</>
-//)
-//}
-//</> 
     )
 }
 

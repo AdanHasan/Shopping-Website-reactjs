@@ -1,17 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import classes from "./OrderList.css";
+import   "./OrderList.css";
 import { FaHeart, FaRegHeart, FaCartPlus } from "react-icons/fa"
 import { useState, useEffect } from "react";
-// import { getAllItems , updateItem , getAllOrders , createOrder , createItem , createUser , updateOrder , deleteOrder} from "../services/api";
-import { BsCartPlus, BsCartDash } from "react-icons/bs";
-import { RiDeleteBin6Line, RiEyeCloseFill } from "react-icons/ri";
-import Home from "./Home";
-import { getAllItems, updateItem, getAllOrders, updateOrder, deleteOrder, getAllUsers,getAllUserItems,getAllOrderIds,getAllOrderItems} from "../services/api";
-import Item from "./Item";
+import { getAllUserItems,getAllOrderIds,getAllOrderItems} from "../services/api";
 import CloseItem from "./CloseItem";
-
-
 
 
 function CloseOrder(props) {
@@ -103,51 +95,33 @@ function CloseOrder(props) {
 
 
   <div 
-//   key={props.order.id}
    class="orderDiv" id="order"> 
   <div class="row" > 
 
   <ul>
-  {/* {props.arrOfItems.map( (item) => ( */}
     {props.arrOfItems.map( (item) => (
-          //  <Item  key={item.id}  item={noww} favorites={existingItems} />
-          // <CloseItem item={item} /> 
-          // <CloseItem  key={item.id}  item={noww} favorites={existingItems} />   
-          // <CloseItem item={item}  /> 
+
           <CloseItem item={item}  closeOrder={props.closeOrder} /> 
 
     ))}
     </ul> 
 
 
-    {/* <ul>
-    {props.arrOfItems.map( (item) => (
-          <Item  key={item.id}  item={item} favorites={props.favorites} />   
-           
-
-    ))}
-    </ul>  */}
  </div> 
  <br></br>
                   <form class="orderDetails">
-                    {/* <button onClick={()=>returnQuantity(existingCartItem)}>qq</button> */}
 
                     <label 
-                    // onClick={() => getTotalPrice()} 
                     class="orderLabel">Total Price : {props.closeOrder.totalPrice}
-                    {/* {enteredTotalPrice} */}
                      USD</label>
 
                     <br></br> <br></br>
                     <label
-                    //  onClick={getDate()} 
                      class="orderLabel">Order Date :{props.closeOrder.orderDate}
-                      {/* {enteredOrderDate} */}
                        </label>
                      <br></br> <br></br><div> 
                      <label class="orderLabel"
                     >Shipping Address : {props.closeOrder.shippingAddress}
-                    {/* {enteredShippingAddress} */}
                     </label>
                      </div>
 

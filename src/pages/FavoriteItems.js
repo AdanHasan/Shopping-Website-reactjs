@@ -1,17 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import classes from "./FavoriteItems.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faCartPlus, faSadCry } from "@fortawesome/free-solid-svg-icons";
-import { icon } from "@fortawesome/fontawesome-svg-core";
-import { FaHeart, FaRegHeart, FaCartPlus } from "react-icons/fa"
+import "./FavoriteItems.css";
+import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { useState, useEffect } from "react";
 import { getAllItems, getAllOrders, updateItem, updateOrder, createOrder, getAllUsers } from "../services/api";
 import { BsCartPlus, BsCartDash } from "react-icons/bs"
 
 
-import Home from "./Home";
 
 
 function FavoriteItems() {
@@ -24,12 +18,10 @@ function FavoriteItems() {
     const [registeredUser, setRegisteredUser] = useState([]);
 
 
-    //  var [enteredTotalPrice , setEnteredTotalPrice]=useState([]);
     const [itemQuantity, setItemQuantity] = useState([]);
 
 
     var enteredTotalPrice = 0;
-    //    var enteredTotalPrice ;
     var enteredOrderDate;
 
 
@@ -101,7 +93,6 @@ function FavoriteItems() {
             liked: !item.liked,
             cart: item.cart
         };
-        // let arrOfItems=[itemToUpdate]
         updateItem(itemToUpdate);
     };
 
@@ -119,14 +110,11 @@ function FavoriteItems() {
             liked: item.liked,
             cart: !item.cart
         };
-        // let arrOfItems=[itemToUpdate]
         updateItem(itemToUpdate);
         if (currentId == null && item.cart == 0) {
-            // getTotalPrice(itemPrices,itemQuantity);
             orderCreate();
         }
         else if (currentId != null && item.cart == 0) {
-            // getTotalPrice(itemPrices,itemQuantity);
             orderUpdate();
         }
     };
@@ -162,11 +150,9 @@ function FavoriteItems() {
                             if (order.status == "TEMP") {
                                 return ({ ...order }, setCurrentId(order.id))
 
-                                // setCurrentId(identity)
                             }
 
                         });
-                        //   console.log("identity" , currentId)
 
                     }
 
@@ -206,38 +192,17 @@ function FavoriteItems() {
 
 
                 <div class="row" >
-                    {/* {existingFavProduct} */}
                     {registeredUser}
 
                 </div>
 
-                {/*            
-           { 
-           setFavList(preState=>[...preState, e])
-           } */}
 
-                {/* {
-                    existingItems && existingItems.map(item=>{
-                        return <><div key={item.id} class="imgdiv" ><img  class="image" src={require('../images/sun1.webp')} ></img> <div> {item.title} </div> <br></br><div> {item.price} USD </div> 
-                        <br></br><div> {item.quantity} In Stock </div> <span class="heartIcon" > <button ><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon></button> </span> <span class="cartIcon"> <FontAwesomeIcon icon={faCartPlus} /></span> </div></>
-                    })
-                } */}
 
             </div>
-            {/* <Home existingItems={existingItems} setExistingItems={setExistingItems} />  */}
         </>
     )
 }
 
 
-// function FavoriteItems(){
-//     return (
-
-//         <>
-
-//     <h1>heko</h1>
-//         </>
-//       );
-// }
 
 export default FavoriteItems;

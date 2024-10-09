@@ -1,10 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import classes from "./OrderList.css";
-import { FaHeart, FaRegHeart, FaCartPlus } from "react-icons/fa"
 import { useState, useEffect } from "react";
-import { BsCartPlus, BsCartDash } from "react-icons/bs";
-import { RiDeleteBin6Line, RiEyeCloseFill } from "react-icons/ri";
 import Home from "./Home";
 import { getAllItems, updateItem, updateOrder, deleteOrder, getAllUsers, getAllOrderItems,getAllOrders, getAllUserItems,getAllOrderIds,deleteAllOrderItems } from "../services/api";
 import Item from "./Item";
@@ -12,12 +9,9 @@ import TempOrders from "./TempOrders";
 import CloseOrders from "./CloseOrders";
 import Clos from "./Clos";
 
-
 function OrderList() {
 
   const [existingCartItem, setExistingCartItem] = useState([]);
-  const [createdTempOrder, setCreatedTempOrder] = useState([]);
-  const [createdCloseOrder, setCreatedCloseOrder] = useState([]);
   const [enteredShippingAddress, setEnteredShippingAddress] = useState('');
   const [currentId, setCurrentId] = useState();
   var enteredOrderDate;
@@ -25,12 +19,6 @@ function OrderList() {
   const [enteredQuantity, setEnteredQuantity] = useState();
   const [cartItems, setCartItems] = useState([]);
   var [enteredTotalPrice, setEnteredTotalPrice] = useState([]);
-  const [tempOrders, setTempOrders] = useState([]);
-  // console.log(`2222 tempsOrders: ${JSON.stringify(tempOrders)}`);
-  const [existingItems, setExistingItems] = useState([]);
-  const [currentItems, setCurrentItems] = useState([]);
-  const [orderIds, setOrderIds] = useState([]);
-  const [z, setZ] = useState([]);
   const [fav, setFav] = useState([]);
 
   let bUserName = sessionStorage.getItem("username")
@@ -58,34 +46,11 @@ function OrderList() {
 
     let resTempOrders = [];
     let favorites =[];
-
-    //     getAllOrders().then(
-
-    //       res => {
-
-    //         const identity = res.data.map(order => {
-    //           if (order.status == "TEMP") {
-    //             return ({ ...order }, setCurrentId(order.id))
-
-    //           }
-
-    //       }
-
-
-    //     );
-
-  
-    //   }
-
-    // );
     getAllUserItems(userItemsBody).then(
 
       res => {
-        // console.log(res)
            favorites = res.data.map(userItems => {
-          
-              // return ({ ...userItems })
-              return (
+                        return (
                   userItems.id
               )
               
@@ -148,7 +113,6 @@ function OrderList() {
       liked: !item.liked,
       cart: item.cart
     };
-    // let arrOfItems=[itemToUpdate]
     updateItem(itemToUpdate);
   };
 
@@ -162,14 +126,12 @@ function OrderList() {
       id: item.id,
       title: item.title,
       price: item.price,
-      // quantity: item.quantity+1,
       quantity: item.quantity,
       inStock: ((item.cart == 0) ? decreaseQuantity : ((enteredQuantity != null) ? increaseQuantity : (item.quantity))),
       pictureUrl: item.pictureUrl,
       liked: item.liked,
       cart: !item.cart
     };
-    // let arrOfItems=[itemToUpdate]
     updateItem(itemToUpdate);
   };
 
@@ -181,10 +143,6 @@ function OrderList() {
 
   };
 
-
-
-
-
   const orderUpdate = () => {
     getDate();
     const orderToUpdate = {
@@ -192,7 +150,6 @@ function OrderList() {
       userId: 1,
       orderDate: enteredOrderDate,
       shippingAddress: enteredShippingAddress,
-      //  totalPrice:enteredTotalPrice,
       totalPrice: 1800,
       status: currentStatus,
       itemId: 3
@@ -200,27 +157,17 @@ function OrderList() {
 
     if (enteredShippingAddress != "") {
       updateOrder(orderToUpdate);
-      // moveElement();
     }
     else {
       { alert("Please Fill The Shipping Address") }
     }
-
-    console.log(orderToUpdate);
-
-
-  }
-
-
-  const [registeredItem, setRegisteredItem] = useState([])
-  
+  }  
 
   const returnQuantity = () => {
 
     console.log("qqqq", cartItems)
 
     for (let i = 0; i <= cartItems.length; i++) {
-      let x = 5;
       const productToUpdate = {
         id: cartItems[i].id,
         title: cartItems[i].title,
@@ -232,11 +179,6 @@ function OrderList() {
         liked: 1,
         cart: 0
       };
-
-      x = 7;
-
-
-
       let arrOfItems = [productToUpdate]
       updateItem(arrOfItems);
       console.log("sss" + productToUpdate)
@@ -257,14 +199,11 @@ function OrderList() {
 
   }
 
-
   const changeStatus = () => {
     currentStatus = "CLOSE";
     orderUpdate();
 
   }
-
-
 
   function getTotalPrice(e) {
     console.log("priceee", e);
@@ -275,43 +214,22 @@ function OrderList() {
     enteredTotalPrice = sum;
   }
 
-
-
   return (
 
     <>
- 
-
 
       <div className="orderListPage">
 
         <div id="cart">
           <h2 >    <img src={require('../images/shopping-cart.png')} id="cartIcon" alt="cart" ></img> My Cart </h2>
         </div>
-        
-        {/* <h1 id="temp"> TEMP ORDERS</h1> */}
-        <br></br>
+                <br></br>
         <p id="p"></p>
   
         <TempOrders favorites={fav}  />
         <br></br>
         <br></br>
-
-        {/* <h1 id="close"> CLOSE ORDERS</h1> */}
-
-        {/* <CloseOrders favorites={fav}  /> */}
-
         <CloseOrders/>
-        {/* {createdCloseOrder} */}
-
-
-        {/* <h1 id="temp"> Closeeeeeeeeeeeeeeeeeeeeeee ORDERS</h1>
-        <br></br>
-        <p id="p"></p>
-  
-        <CloseOrders favorites={fav}  />
-        <br></br>
-        <br></br> */}
       </div>
 
 

@@ -2,8 +2,7 @@ import React from "react";
 import { FaHeart, FaRegHeart} from "react-icons/fa"
 import classes from "./Home.css";
 import { useState, useEffect } from "react";
-import { BsCartPlus , BsCartDash , BsCart} from "react-icons/bs"
-import { getAllItems, updateItem , createOrder, getAllOrders ,updateOrderItemQuantity, updateOrder , getAllUsers, getAllUserItems, deleteUserItem ,getQantity, createUserItems,createOrderItems,createOrderItem,updateItemQuantity} from "../services/api";
+import {  createOrder, updateOrder , deleteUserItem , createUserItems,createOrderItems,createOrderItem,updateItemQuantity} from "../services/api";
 
 
 function CloseItem(props) {
@@ -13,15 +12,6 @@ function CloseItem(props) {
     var enteredOrderDate;
     var x=0;
     useEffect(() => {
-// console.log(props.arrOfTemps.length)
-// console.log(props.arrOfOrderItems[props.item.id]);
-//   if(props.favorites.includes(props.item.id))
-//     {
-//         setIsHeart(true)
-
-//     }
-// console.log("tnshoffffff!!")
-// console.log(props.item)
     
    });
 
@@ -52,16 +42,6 @@ function CloseItem(props) {
     const changeCart = () =>{
         setInCart(!inCart);
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // const quantityChangeHandler = () => {
-    // const body ={
-    //     userName:JSON.parse(sessionStorage.getItem("username")),
-    //     itemId: props.item.id
-    // }
-    // const y=getQantity(body);
-    // console.log(y)
-    // return y;
-    // }
 
 
     const getDate=()=>{
@@ -72,7 +52,6 @@ function CloseItem(props) {
        var current_date = year + "-" + month + "-" + day;
 
         enteredOrderDate = current_date;
-        // console.log(enteredOrderDate)
 
        }
 
@@ -81,7 +60,6 @@ function CloseItem(props) {
             userName:JSON.parse(sessionStorage.getItem("username")),
             orderItemId:props.item.id
         }
-        // if (JSON.parse(sessionStorage.getItem("isActive"))==true){
         createOrderItem(orderItemToCreate);
         
        }
@@ -105,7 +83,6 @@ function CloseItem(props) {
     }
     const addItemToCart=()=>{
         const orderItemToCreate = {
-            // orderId:props.lastId,
             orderId:1,
             quantity:1,
              items:[props.item.id]
@@ -156,16 +133,8 @@ else{
        
 if(props.item.inStock>0)  {   
     updateOrder(orderToUpdate);
-    // createOrderItems(orderItemToCreate);
     updateItemQuantity(quantityUpdate);  
-//////////////بدي انو لما اكبس وتقل الكونتي لازم تزيد بصفحة المشتريات
-    // if(props.arrOfOrderItems[props.lastId].quantity>=1) {
-    //     updateOrderItemQuantity(orderItemToUpdate);
 
-    // }
-    // else{
-    //     createOrderItems(orderItemToCreate);
-    // }
     }
     else{
      alert("This item is out of stock!")
@@ -183,26 +152,9 @@ if(props.item.inStock>0)  {
                         <br></br> 
                           <span class="quantityNum">  {props.item.quantity} Quantiny </span>  
                          <br></br> 
-
-                        {/* <div> {props.item.inStock} In Stock </div> */}
                          <br></br><br></br><br></br>
                          <br></br>
 
-                      {/* <span> <label class="labelQuantity">Quantity :</label>  */}
-                      {/* <input  required key={props.item.id} class="inputQuantity" type="number"
-                      value={enteredQuantity}
-                      onChange={quantityChangeHandler}
-                     >
-               </input> */}
-                      {/* </span> */}       
-                      {/* <span class="quantityNum">  {props.item.quantity} Quantiny </span>  */}
-
-                        {/* <div class="quantityNum" onChange={quantity(props.item.id,JSON.parse(sessionStorage.getItem("username")))}> Quantiny </div>  */}
-                        {/* <span class="heartIcon"  onClick={changeHeart}> {isHeart ? <FaHeart /> : <FaRegHeart />} </span> */}
-
-                        {/* <span class="cartIcon"onClick={changeCart} >{inCart ? <BsCartDash /> : <BsCartPlus />}</span>   */}
-                        {/* <span class="cartIcon"onClick={addNew} > <BsCartPlus /></span>   */}
-                        
                         </div>
     </>)
 }

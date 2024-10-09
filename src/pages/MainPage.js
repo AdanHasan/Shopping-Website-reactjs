@@ -1,17 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { getAllItems, updateItem , createOrder, getAllOrders , updateOrder , getAllUsers, getAllUserItems, deleteUserItems , createUserItems} from "../services/api";
+import { getAllItems} from "../services/api";
 import { useState, useEffect } from "react";
 import {Link , useMatch , useResolvedPath} from "react-router-dom";
 import "./MainPage.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
-// import { faCartPlus, faCartMinus } from "@fortawesome/free-solid-svg-icons";
-import { icon } from "@fortawesome/fontawesome-svg-core";
-// import {BsCartPlus} from "bootstrap-icons";
 import FavoriteItems from "./FavoriteItems";
 import { FaHeart, FaRegHeart, FaCartPlus } from "react-icons/fa"
-import { render } from "@testing-library/react";
 import { BsCartPlus , BsCartDash , BsCart} from "react-icons/bs"
 import {user} from "../components/registration/Login";
 import Item from "./Item";
@@ -54,13 +48,6 @@ const items = res.data.map(item=> {
                     return ({ ...item }, <div  key={item.id} class="imgdiv" ><img class="image" src={item.pictureUrl}></img>
                      <div> {item.title} </div> <br></br><div> {item.price} USD </div>
                         <br></br><div> {item.inStock} In Stock </div> <br></br><br></br><br></br>
-                      {/* <span> <label class="labelQuantity">Quantity :</label> 
-                      <input  required key={item.id} class="inputQuantity" type="number"
-                      value={enteredQuantity}
-                      onChange={quantityChangeHandler}
-                     >
-               </input>
-                      </span> */}
                         <span class="heartIcon" onClick={() => loginAlert()} > <FaRegHeart  /></span>
                         <span class="cartIcon" onClick={() => loginAlert()}><BsCartPlus/></span>
                         </div>) 
@@ -85,7 +72,6 @@ const items = res.data.map(item=> {
             <img src={require('../images/wallpaper2.jpg')} alt="burberry" class="img"></img>
 
 <h2 class="qoute">Sunglasses are like eye shadow: They make everything look younger and pretty.</h2>
-            {/* <h2 class="qoute">MainPage </h2> */}
 
             <span>
                 <div class="ro"  >

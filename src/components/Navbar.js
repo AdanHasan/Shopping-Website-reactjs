@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import classes from "./Navbar.css";
+import  "./Navbar.css";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { deleteUser, getUserStatus } from "../services/api";
